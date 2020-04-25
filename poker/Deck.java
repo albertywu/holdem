@@ -14,10 +14,10 @@ public class Deck {
   public Deck() {
     List<Card> cards = new ArrayList<Card>();
     for (int rank = 2; rank <= 14; rank++) {
-      cards.add(new Card(i, Suit.Diamond));
-      cards.add(new Card(i, Suit.Heart));
-      cards.add(new Card(i, Suit.Club));
-      cards.add(new Card(i, Suit.Spade));
+      cards.add(new Card(rank, Suit.Diamond));
+      cards.add(new Card(rank, Suit.Heart));
+      cards.add(new Card(rank, Suit.Club));
+      cards.add(new Card(rank, Suit.Spade));
     }
     this.cards = shuffle(cards);
   }
