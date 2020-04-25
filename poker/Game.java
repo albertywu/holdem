@@ -9,7 +9,10 @@ public class Game {
     // Create initial game state
     Player p1 = Player.create("Felix", 100);
     Player p2 = Player.create("Albert", 100);
-    List<Player> players = new ArrayList<Player>(List.of(p1, p2));
+    Player p3 = Player.create("Pavel", 100);
+    Player p4 = Player.create("Kaha", 100);
+    Player p5 = Player.create("Vinh", 100);
+    List<Player> players = new ArrayList<Player>(List.of(p1, p2, p3, p4, p5));
     GameState game = GameState.create(players);
     System.out.println(game);
 
