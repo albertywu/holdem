@@ -1,7 +1,30 @@
 package poker;
 
 enum Suit {
-  Diamond, Club, Heart, Spade
+  Diamond {
+    @Override
+    public String toString() {
+      return "\u2666";
+    }
+  },
+  Club {
+    @Override
+    public String toString() {
+      return "\u2663";
+    }
+  },
+  Heart {
+    @Override
+    public String toString() {
+      return "\u2665";
+    }
+  },
+  Spade {
+    @Override
+    public String toString() {
+      return "\u2660";
+    }
+  }
 }
 
 public class Card implements Comparable<Card> {
@@ -29,16 +52,6 @@ public class Card implements Comparable<Card> {
       rank = "K";
     if (this.rank == 14)
       rank = "A";
-    String suit = "";
-    if (this.suit == Suit.Diamond) {
-      suit = "D";
-    } else if (this.suit == Suit.Club) {
-      suit = "C";
-    } else if (this.suit == Suit.Heart) {
-      suit = "H";
-    } else if (this.suit == Suit.Spade) {
-      suit = "S";
-    }
     return rank + suit;
   }
 }

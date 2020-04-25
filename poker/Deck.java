@@ -15,8 +15,8 @@ public class Deck {
     List<Card> cards = new ArrayList<Card>();
     for (int rank = 2; rank <= 14; rank++) {
       cards.add(new Card(rank, Suit.Diamond));
-      cards.add(new Card(rank, Suit.Heart));
       cards.add(new Card(rank, Suit.Club));
+      cards.add(new Card(rank, Suit.Heart));
       cards.add(new Card(rank, Suit.Spade));
     }
     this.cards = shuffle(cards);
