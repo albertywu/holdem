@@ -23,26 +23,6 @@ public class GameState {
     this.pot = pot;
   }
 
-  @SuppressWarnings({ "unchecked" }) // TODO: how to avoid unchecked warnings in a type-safe way?
-  public GameState next(Phase phase, Action action) {
-    // TODO: add more actions
-    switch (phase) {
-      case PreAnte:
-        switch (action.type) {
-          case AddPlayers:
-            List<Player> players = (List<Player>) action.args;
-            return Action.addPlayers(this, players);
-          case Ante:
-            Map<Player, Integer> ante = (Map<Player, Integer>) action.args;
-            return Action.addAnte(this, ante);
-          default:
-            throw new IllegalStateException("Allowed actions in PreDeal phase: addPlayers, addAnte");
-        }
-      default:
-        throw new IllegalStateException("Allowed game phases: PreDeal");
-    }
-  }
-
   public static GameState create(List<Player> players) {
     List<Card> cards = new ArrayList<Card>();
     for (int rank = 2; rank <= 14; rank++) {

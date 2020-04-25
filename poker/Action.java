@@ -15,6 +15,20 @@ public class Action {
     this.args = args;
   }
 
+  @SuppressWarnings({ "unchecked" }) // TODO: how to avoid unchecked warnings in a type-safe way?
+  public GameState run(GameState game, Object args) {
+    switch (this.type) {
+      case Ante:
+        Map<Player, Integer> ante = (Map<Player, Integer>) args;
+        return addAnte(game, ante);
+      case AddPlayers:
+        List<Player> players = (List<Player>) args;
+        return addPlayers(game, players);
+      default:
+        throw new IllegalStateException("Allowed game phases: PreDeal");
+    }
+  }
+
   public static GameState addPlayers(GameState game, List<Player> players) {
     return new GameState(game.deck, Utils.concat(game.players, players), game.phase, game.pot);
   }
@@ -28,6 +42,8 @@ public class Action {
       if (ante.keySet().contains(p)) {
         potAdditions += ante.get(p);
         players.add(new Player(p.hand, p.name, p.wallet - ante.get(p)));
+      } else {
+        players.add(new Player(p.hand, p.name, p.wallet));
       }
     }
 
