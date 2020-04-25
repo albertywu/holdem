@@ -1,7 +1,6 @@
 package poker;
 
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 public class Deck {
   public final List<Card> cards;
@@ -11,15 +10,13 @@ public class Deck {
     return cards;
   }
 
-  public Deck() {
-    List<Card> cards = new ArrayList<Card>();
-    for (int rank = 2; rank <= 14; rank++) {
-      cards.add(new Card(rank, Suit.Diamond));
-      cards.add(new Card(rank, Suit.Club));
-      cards.add(new Card(rank, Suit.Heart));
-      cards.add(new Card(rank, Suit.Spade));
-    }
+  public Deck(List<Card> cards) {
     this.cards = shuffle(cards);
+  }
+
+  // pulls n cards from top of deck, returns cards and a new deck
+  public Tuple<List<Card>, Deck> pull(int n) {
+    return new Tuple<List<Card>, Deck>(this.cards.subList(0, n), new Deck(this.cards.subList(n, this.cards.size())));
   }
 
   @Override
