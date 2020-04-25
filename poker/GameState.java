@@ -1,5 +1,6 @@
 package poker;
 
+import poker.actions.Action;
 import java.util.*;
 
 /*
@@ -7,7 +8,7 @@ import java.util.*;
  * state: GameState newState = state.next(action)
  */
 public class GameState {
-  enum Phase {
+  public enum Phase {
     PreAnte, PreDeal, PreFlop, PreTurn, PreRiver, PreShowdown
   }
 
@@ -33,6 +34,10 @@ public class GameState {
     }
     Deck deck = new Deck(cards);
     return new GameState(deck, players, Phase.PreAnte, 0);
+  }
+
+  public GameState run(Action action, Object args) {
+    return action.run(this, args);
   }
 
   @Override

@@ -1,6 +1,6 @@
 
 #!/bin/bash
 
-javac poker/*.java 
+javac poker/*.java poker/actions/*.java 
 java poker.Game
-rm -rf poker/*.class
+rm -rf poker/*.class poker/actions/*.class
