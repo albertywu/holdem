@@ -15,8 +15,8 @@ public class Deck {
   }
 
   // pulls n cards from top of deck, returns cards and a new deck
-  public Tuple<List<Card>, Deck> pull(int n) {
-    return new Tuple<List<Card>, Deck>(this.cards.subList(0, n), new Deck(this.cards.subList(n, this.cards.size())));
+  public Pair<List<Card>, Deck> pull(int n) {
+    return new Pair<List<Card>, Deck>(this.cards.subList(0, n), new Deck(this.cards.subList(n, this.cards.size())));
   }
 
   @Override
