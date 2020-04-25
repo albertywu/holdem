@@ -21,4 +21,13 @@ public class Deck {
     }
     this.cards = shuffle(cards);
   }
+
+  @Override
+  public String toString() {
+    String s = "";
+    for (Card card : this.cards) {
+      s = s + card.toString() + " ";
+    }
+    return s;
+  }
 }
