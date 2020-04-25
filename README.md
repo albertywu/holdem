@@ -1,5 +1,9 @@
-# Texas Hold'em
+# Texas Hold'em 🃁
 
-Trying my hand at Java...
+Trying my hand at Java
+
+---
+
+To Build & Run, use:
 
 `./run.sh`
