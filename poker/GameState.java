@@ -36,7 +36,7 @@ public class GameState {
     return new GameState(deck, players, Phase.PreAnte, 0);
   }
 
-  public GameState run(Action action, Object args) {
+  public <T> GameState run(Action<T> action, T args) {
     return action.run(this, args);
   }
 

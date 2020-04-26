@@ -6,14 +6,13 @@ import poker.Player;
 import java.util.*;
 import poker.Util;
 
-public class AddPlayers extends Action {
+public class AddPlayers extends Action<List<Player>> {
 
-  public AddPlayers(Object args) {
+  public AddPlayers(List<Player> args) {
     super(Type.AddPlayers, args, new HashSet<>(Arrays.asList(Phase.PreAnte)));
   }
 
-  @SuppressWarnings({ "unchecked" }) // TODO: how to avoid unchecked warnings in a type-safe way?
-  public GameState run(GameState game, Object args) {
+  public GameState run(GameState game, List<Player> args) {
     if (!this.allowedPhases.contains(game.phase)) {
       throw new IllegalStateException("Action " + this.type + " only runnable in " + this.allowedPhases);
     }
