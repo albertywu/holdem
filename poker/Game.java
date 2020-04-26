@@ -1,10 +1,7 @@
 package poker;
 
 import java.util.*;
-
-import poker.actions.Action;
-import poker.actions.AddAnte;
-import poker.actions.AddPlayers;
+import poker.actions.*;
 
 public class Game {
   public static void main(String[] args) {
@@ -22,7 +19,7 @@ public class Game {
     Map<Player, Integer> ante = new HashMap<Player, Integer>();
     ante.put(p1, 1);
     ante.put(p2, 2);
-    Action anteAction = new AddAnte(ante);
+    AddAnte anteAction = new AddAnte(ante);
     game = game.run(anteAction, ante);
     System.out.println(game);
 
@@ -30,7 +27,7 @@ public class Game {
     Player p6 = Player.create("Veronika", 100);
     Player p7 = Player.create("Maxine", 100);
     List<Player> newPlayers = new ArrayList<Player>(List.of(p6, p7));
-    Action addPlayers = new AddPlayers(newPlayers);
+    AddPlayers addPlayers = new AddPlayers(newPlayers);
     game = game.run(addPlayers, newPlayers);
     System.out.println(game);
   }

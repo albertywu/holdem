@@ -22,7 +22,7 @@ public class Player {
 
   public static class Hand {
     public final List<Card> cards;
-    private final Map<Card, Boolean> visibility;
+    public final Map<Card, Boolean> visibility;
 
     public Hand(List<Card> cards, Map<Card, Boolean> visibility) {
       this.cards = cards;
